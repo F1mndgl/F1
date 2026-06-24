@@ -1,0 +1,194 @@
+/* ==========================================================================
+   7. STYLE DES TABLEAUX DE CLASSEMENT
+   ========================================================================== */
+.tables-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.table-section {
+    background: #2b2b32;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid #ff1801; /* Ligne rouge distinctive en haut de la section */
+}
+
+.table-section h2 {
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 1px solid #3e3e46;
+    padding-bottom: 10px;
+}
+
+/* Sécurité pour le mobile : permet de scroller horizontalement si l'écran est trop petit */
+.responsive-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Supprime les espaces entre les bordures */
+    text-align: left;
+}
+
+/* Style de la ligne d'en-tête (Titres des colonnes) */
+thead tr {
+    background-color: #1a1a1f;
+}
+
+th {
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #a1a1a6;
+    letter-spacing: 0.5px;
+}
+
+/* Style des cellules de données */
+td {
+    padding: 16px;
+    border-bottom: 1px solid #3e3e46;
+    font-size: 0.95rem;
+    color: #ffffff;
+}
+
+/* Effet visuel au survol d'une ligne du tableau */
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 24, 1, 0.05); /* Légère coloration rouge au survol */
+}
+
+/* Style spécifique pour la colonne Position (Chiffres de gauche) */
+.pos-cell {
+    font-weight: 800;
+    color: #ff1801;
+    width: 60px;
+}
+
+/* Style discret pour le texte secondaire (comme le nom de l'écurie) */
+.team-text {
+    color: #c5c5ca;
+}
+
+/* Style spécifique pour la colonne des Points (Chiffres de droite) */
+.pts-cell {
+    font-weight: 700;
+    text-align: right;
+    color: #ff1801;
+    background: rgba(255, 24, 1, 0.02);
+}
+
+th:last-child {
+    text-align: right;
+}
+
+
+
+
+/* ==========================================================================
+   CSS DÉDIÉ - PAGE DES CLASSEMENTS (LOOK PILOTES PREMIUM)
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #1f1f24; /* Fond gris très sombre style Paddock */
+    color: #ffffff;
+    line-height: 1.5;
+    padding: 40px 20px;
+}
+
+/* En-tête et retour à l'accueil */
+header nav a {
+    color: #ff1801;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto 40px auto;
+    color: #a1a1a6;
+    font-size: 1rem;
+}
+
+/* Conteneur des tableaux */
+.tables-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Sections des tableaux style cartes */
+.table-section {
+    background: #2b2b32;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-top: 4px solid #ff1801; /* Ligne rouge signature en haut du tableau */
+}
+
+.table-section h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 1px solid #3e3e46;
+    padding-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* Optimisation mobile */
+.responsive-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+/* En-tête du tableau */
+thead tr {
+    background-color: #1

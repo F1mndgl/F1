@@ -1,0 +1,106 @@
+body { font-family: Arial, sans-serif; text-align: center; background-color: #333333; }
+.grid-container { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px; }
+.category { display: flex; align-items: center; gap: 15px; background: white; padding: 10px; border-radius: 8px; width: 300px; }
+.category img { width: 50px; height: 50px; border-radius: 5px; }
+.category a { text-decoration: none; font-size: 1.2rem; color: #e10600; font-weight: bold; }
+
+h1 {
+    
+    color: red;
+}
+
+
+
+
+/* ==========================================================================
+   CSS ACCUEIL DESIGN RACING - ONGLET VERTICAL LARGE & ICONES XXL
+   ========================================================================== */
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #1f1f24; /* Même fond anthracite sombre que tes autres pages */
+    color: #ffffff;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Titre Principal du Site */
+h1 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #ffffff; /* Tu peux mettre #ff1801 si tu le veux en rouge */
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+
+/* Le conteneur qui force l'alignement vertical */
+.grid-container, .menu-grid, main {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 25px !important;
+    width: 100% !important;
+    max-width: 900px; /* Aligne la largeur max des grands onglets */
+    margin: 0 auto;
+}
+
+/* LES ONGLETS : Version large, fond blanc, coins arrondis */
+.card, .menu-item {
+    display: flex !important;
+    flex-direction: row !important; /* Aligne l'icône à gauche et le texte juste à côté */
+    align-items: center !important;
+    justify-content: flex-start !important;
+    
+    width: 100% !important; /* Prend toute la largeur disponible du bloc main */
+    padding: 20px 35px !important; /* Espace interne pour créer un gros bouton */
+    
+    background-color: #ffffff !important; /* Reste blanc comme sur ton modèle */
+    border-radius: 14px !important;
+    text-decoration: none !important; /* Enlève le soulignement bleu moche du lien */
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Effet au survol des onglets */
+.card:hover, .menu-item:hover {
+    transform: scale(1.02) !important; /* Légère augmentation au survol */
+    box-shadow: 0 12px 25px rgba(255, 24, 1, 0.3) !important; /* Halo rouge racing */
+}
+
+/* LES ICONES : Grosses, nettes et bien cadrées à gauche */
+.card img, .menu-item img {
+    width: 100px !important;  /* Taille de l'icône augmentée */
+    height: 100px !important; /* Taille de l'icône augmentée */
+    object-fit: cover !important; /* Force l'image à rester propre dans son cadre */
+    border-radius: 10px !important; /* Petits coins arrondis sur l'image */
+    margin-right: 35px !important; /* Repousse le texte vers la droite */
+    flex-shrink: 0 !important; /* Empêche l'image de s'écraser si l'écran est petit */
+}
+
+/* LES TEXTES DES CATEGORIES */
+.card h2, .menu-item h2, .card a, .menu-item a {
+    font-size: 2rem !important; /* Écritures des catégories bien plus grosses */
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    color: #ff1801 !important; /* Rouge F1 identique à tes captures */
+    text-decoration: none !important;
+}
+
+/* Optionnel : si tu as des petits paragraphes sous tes titres d'onglets */
+.card p, .menu-item p {
+    font-size: 1.1rem !important;
+    color: #555555 !important;
+    margin-top: 5px !important;
+}

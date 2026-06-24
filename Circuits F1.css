@@ -1,0 +1,203 @@
+/* ==========================================================================
+   6. GRILLE ET CARTES POUR LES CIRCUITS
+   ========================================================================== */
+.grid-container-circuits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+    .grid-container-circuits {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes de circuits côte à côte sur PC */
+    }
+}
+
+.card-circuit {
+    background: #2b2b32;
+    border-radius: 16px;
+    overflow: hidden;
+    border-left: 4px solid #ff1801; /* Ligne rouge verticale distinctive à gauche */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-circuit:hover {
+    transform: scale(1.02); /* Léger grossissement au survol */
+    box-shadow: 0 15px 35px rgba(255, 24, 1, 0.15);
+}
+
+/* Zone pour le plan du circuit (Map Layout) */
+.card-circuit .map-container {
+    background-color: #1a1a1f; /* Fond ultra-sombre pour faire ressortir les lignes blanches/rouges du plan */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+}
+
+.card-circuit .map-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Empêche le plan du circuit d'être déformé */
+}
+
+/* Contenu textuel de la fiche circuit */
+.card-circuit .circuit-content {
+    padding: 25px;
+    text-align: left;
+}
+
+.card-circuit h2 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.card-circuit .location-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ff1801;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Boîte contenant la fiche technique (longueur, tours...) */
+.card-circuit .circuit-specs {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85rem;
+}
+
+.card-circuit .circuit-specs p {
+    margin: 0;
+    color: #c5c5ca;
+}
+
+.card-circuit .circuit-specs strong {
+    color: #ffffff;
+}
+
+.card-circuit .description {
+    font-size: 0.9rem;
+    color: #a1a1a6;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   CSS DÉDIÉ - PAGE DES CIRCUITS (LOOK PILOTES PREMIUM)
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
+    background-color: #1f1f24; /* Fond gris très sombre style Paddock */
+    color: #ffffff;
+    line-height: 1.5;
+    padding: 40px 20px;
+}
+
+/* En-tête et retour à l'accueil */
+header nav a {
+    color: #ff1801;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 10px auto 40px auto;
+    color: #a1a1a6;
+    font-size: 1rem;
+}
+
+/* Grille des Circuits (Identique aux pilotes) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartes des Circuits */
+.card {
+    background: #2b2b32; /* Même fond de carte gris contrasté */
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 4px solid #ff1801; /* Ligne rouge distinctive en bas */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+/* Effet au survol */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(255, 24, 1, 0.2); 
+}
+
+/* Ajustement des images de tracés de circuits */
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: contain; /* Évite de déformer ou couper la forme du circuit */
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+/* Nom du Grand Prix ou du circuit */
+.card h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+/* Informations sur la longueur, le pays ou le nombre de tours */
+.card p {
+    font-size: 0

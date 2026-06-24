@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Classement F1.css">
+    <title>Classement F1 2026 - Championnat Officiel</title>
+</head>
+<body>
+    <header>
+        <nav><a href="index.html">← Retour à l'accueil</a></nav>
+    </header>
+
+    <main>
+        <center><h1>Classements du Championnat 2026</h1></center>
+        <p class="intro">Suivez l'évolution des points de la saison. Le classement Pilotes récompense la régularité des athlètes tandis que le classement Constructeurs couronne la meilleure ingénierie.</p>
+        
+        <div class="tables-container">
+            <section class="table-section">
+                <h2>Championnat des Pilotes</h2>
+                <div class="responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Pilote</th>
+                                <th>Écurie</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="drivers-body">
+                            <tr>
+                                <td colspan="4" style="text-align: center; color: #a1a1a6; padding: 30px;">
+                                    Chargement des scores en direct...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <h2>Championnat des Constructeurs</h2>
+                <div class="responsive-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Écurie</th>
+                                <th>Nationalité</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody id="constructors-body">
+                            <tr>
+                                <td colspan="4" style="text-align: center; color: #a1a1a6; padding: 30px;">
+                                    Chargement des scores en direct...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // URLs officielles de l'API pour la saison 2026
+        const urlPilotes = "https://api.jolpi.ca/ergast/f1/2026/driverStandings.json";
+const urlConstructeurs = "https://api.jolpi.ca/ergast/f1/2026/constructorStandings.json";
+const resultat ="https://api.jolpi.ca/ergast/f1/2026/driverstandings.json"
+
+        // 1. Gestion du classement des Pilotes
+        async function chargerPilotes() {
+            try {
+                const response = await fetch(urlPilotes);
+                const data = await response.json();
+                const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+                const tableBody = document.getElementById("drivers-body");
+                
+                tableBody.innerHTML = ""; // Supprime le message de chargement
+
+                standings.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td class="pos-cell">${item.position}</td>
+                            <td><strong>${item.Driver.givenName} ${item.Driver.familyName}</strong></td>
+                            <td class="team-text">${item.Constructors[0].name}</td>
+                            <td class="pts-cell">${item.points}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById("drivers-body").innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #ff1801; padding: 20px;">
+                            Erreur de connexion aux serveurs de la FIA.
+                        </td>
+                    </tr>`;
+            }
+        }
+
+        // 2. Gestion du classement des Constructeurs
+        async function chargerConstructeurs() {
+            try {
+                const response = await fetch(urlConstructeurs);
+                const data = await response.json();
+                const standings = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+                const tableBody = document.getElementById("constructors-body");
+                
+                tableBody.innerHTML = ""; // Supprime le message de chargement
+
+                standings.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td class="pos-cell">${item.position}</td>
+                            <td><strong>${item.Constructor.name}</strong></td>
+                            <td class="team-text">${item.Constructor.nationality}</td>
+                            <td class="pts-cell">${item.points}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById("constructors-body").innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #ff1801; padding: 20px;">
+                            Erreur de connexion aux serveurs de la FIA.
+                        </td>
+                    </tr>`;
+            }
+        }
+
+        // Lancement des fonctions au chargement de la page
+        chargerPilotes();
+        chargerConstructeurs();
+    </script>
+</body>
+</html>
